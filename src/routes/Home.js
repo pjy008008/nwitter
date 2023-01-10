@@ -33,18 +33,8 @@ const Home = ({ userObj }) => {
     const { value } = event.target;
     setNweet((prev) => value);
   };
-  // const getNweets = async () => {
-  //   const querySnapshot = await getDocs(collection(db, "nweets"));
-  //   querySnapshot.forEach((docs) => {
-  //     const nweetObject = {
-  //       ...docs.data(),
-  //       id: docs.id,
-  //     };
-  //     setNweets((prev) => [nweetObject, ...prev]);
-  //   });
-  // };
   useEffect(() => {
-    // getNweets();
+    // onSnapshot run when the file changed
     const q = query(collection(db, "nweets"));
     onSnapshot(q, (snapshot) => {
       const nweetAry = snapshot.docs.map((doc) => ({

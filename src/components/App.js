@@ -8,10 +8,12 @@ function App() {
   const auth = getAuth();
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLoggedIn(true);
+        setUserObj(user);
         const uid = user.uid;
       } else {
         //user is signed out
@@ -22,7 +24,11 @@ function App() {
   }, []);
   return (
     <div>
-      {init ? <AppRouter isLoggedIn={isLoggedIn} /> : "initializing"}
+      {init ? (
+        <AppRouter userObj={userObj} isLoggedIn={isLoggedIn} />
+      ) : (
+        "initializing"
+      )}
       <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </div>
   );

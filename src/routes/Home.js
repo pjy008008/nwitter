@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from "react";
+import { collection, addDoc, onSnapshot, query } from "firebase/firestore";
 import {
-  collection,
-  addDoc,
-  getDocs,
-  doc,
-  onSnapshot,
-  query,
-  orderBy,
-} from "firebase/firestore";
+  ref,
+  uploadString,
+  getStorage,
+  getDownloadURL,
+} from "firebase/storage";
 import { db } from "fbase";
 import Nweet from "components/Nweet";
+import { v4 as uuidv4 } from "uuid";
 
 const Home = ({ userObj }) => {
   // console.log(userObj);
   const [nweet, setNweet] = useState("");
   const [nweets, setNweets] = useState([]);
+  const [attachment, setAttachment] = useState("");
   const onSubmit = async (event) => {
     event.preventDefault();
+    let attachmentUrl = "";
+    if (attachment !== "") {
+      const storage = getStorage();
+      const storageRef = ref(storage, `${userObj.uid}/${uuidv4()}`);
+      const response = await uploadString(storageRef, attachment, "data_url");
+      attachmentUrl = await getDownloadURL(storageRef);
+    }
     try {
       const docRef = await addDoc(collection(db, "nweets"), {
         text: nweet,
         createdAt: Date.now(),
         creatorId: userObj.uid,
+        attachmentUrl,
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("error adding document : ", e);
     }
     setNweet("");
+    setAttachment("");
   };
   const onChange = (event) => {
     const { value } = event.target;
@@ -44,6 +53,21 @@ const Home = ({ userObj }) => {
       setNweets(nweetAry);
     });
   }, []);
+
+  const onFileChange = (event) => {
+    const { files } = event.target;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.onloadend = (finishedEvent) => {
+      console.log(finishedEvent);
+      const { result } = finishedEvent.currentTarget;
+      setAttachment(result);
+    };
+    reader.readAsDataURL(theFile);
+  };
+  const onClearPhotoClick = () => {
+    setAttachment("");
+  };
   return (
     <div>
       <span>Home</span>
@@ -55,8 +79,16 @@ const Home = ({ userObj }) => {
           maxLength={120}
           type="text"
         />
+        <input onChange={onFileChange} type="file" accept="image/*" />
         <input value="submit" type="submit" />
+        {attachment && (
+          <div>
+            <img src={attachment} width="50px" height="50px" />
+            <button onClick={onClearPhotoClick}>Clear</button>
+          </div>
+        )}
       </form>
+      <h2>////////</h2>
       <h1>{nweet}</h1>
       {nweets.map((nweet) => (
         <Nweet

@@ -4,6 +4,7 @@ import { db } from "fbase";
 import { async } from "@firebase/util";
 
 const Nweet = ({ nweetObj, isOwner }) => {
+  console.log(nweetObj);
   const [edit, setEdit] = useState(false);
   const [newNweet, setNewNweet] = useState(nweetObj.text);
   const NweetTextRef = doc(db, "nweets", `${nweetObj.id}`);
@@ -45,6 +46,9 @@ const Nweet = ({ nweetObj, isOwner }) => {
       ) : (
         <>
           <h4>{nweetObj.text}</h4>
+          {nweetObj.attachmentUrl && (
+            <img src={nweetObj.attachmentUrl} width="50px" height="50px" />
+          )}
           {isOwner && (
             <>
               <button onClick={toggleEdit}>Edit</button>

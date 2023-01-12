@@ -59,7 +59,7 @@ const Home = ({ userObj }) => {
     const theFile = files[0];
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
-      console.log(finishedEvent);
+      // console.log(finishedEvent);
       const { result } = finishedEvent.currentTarget;
       setAttachment(result);
     };

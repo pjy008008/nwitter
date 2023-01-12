@@ -2,17 +2,28 @@ import React, { useState } from "react";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "fbase";
 import { async } from "@firebase/util";
+import { deleteObject, getStorage, ref } from "firebase/storage";
 
 const Nweet = ({ nweetObj, isOwner }) => {
-  console.log(nweetObj);
   const [edit, setEdit] = useState(false);
   const [newNweet, setNewNweet] = useState(nweetObj.text);
+  const storage = getStorage();
+  const desertRef = ref(storage, nweetObj.attachmentUrl);
   const NweetTextRef = doc(db, "nweets", `${nweetObj.id}`);
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this nweet?");
     if (ok) {
       //delete nweet
       await deleteDoc(NweetTextRef);
+      if (nweetObj.attachmentUrl !== "") {
+        await deleteObject(desertRef)
+          .then(() => {
+            // console.log("file deleted successfully");
+          })
+          .catch((error) => {
+            // console.log(error);
+          });
+      }
     }
   };
   const onSubmit = async (event) => {

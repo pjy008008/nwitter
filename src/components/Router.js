@@ -11,13 +11,13 @@ import Auth from "../routes/Auth";
 import Profile from "routes/Profile";
 import Navigation from "./Navigation";
 
-const AppRouter = ({ isLoggedIn, userObj }) => {
+const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <div>
-          {isLoggedIn && <Navigation />}
+          {isLoggedIn && <Navigation userObj={userObj} />}
           {isLoggedIn ? <Home userObj={userObj} /> : <Auth />}
         </div>
       ),
@@ -26,8 +26,8 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
       path: "/profile",
       element: (
         <div>
-          {isLoggedIn && <Navigation />}
-          <Profile />
+          {isLoggedIn && <Navigation userObj={userObj} />}
+          <Profile refreshUser={refreshUser} userObj={userObj} />
         </div>
       ),
     },

@@ -88,7 +88,6 @@ const Home = ({ userObj }) => {
           </div>
         )}
       </form>
-      <h2>////////</h2>
       <h1>{nweet}</h1>
       {nweets.map((nweet) => (
         <Nweet

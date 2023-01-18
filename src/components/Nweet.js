@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "fbase";
-import { async } from "@firebase/util";
 import { deleteObject, getStorage, ref } from "firebase/storage";
 
 const Nweet = ({ nweetObj, isOwner }) => {
@@ -58,7 +57,12 @@ const Nweet = ({ nweetObj, isOwner }) => {
         <>
           <h4>{nweetObj.text}</h4>
           {nweetObj.attachmentUrl && (
-            <img src={nweetObj.attachmentUrl} width="50px" height="50px" />
+            <img
+              alt="post"
+              src={nweetObj.attachmentUrl}
+              width="50px"
+              height="50px"
+            />
           )}
           {isOwner && (
             <>

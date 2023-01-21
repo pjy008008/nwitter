@@ -46,17 +46,35 @@ const Auth = () => {
   };
   return (
     <div>
-      <h1>Twitter</h1>
+      <img
+        className={styles.logo}
+        src={`${process.env.PUBLIC_URL}/img/logo.png`}
+      />
       <LocalLogin />
       <br />
       <div className={styles.socialLogin}>
-      <button className={styles.loginForm} name="google" onClick={onSocialClick}>
-        Continue with Google
-        <img src="./img/google.webp" />
-      </button>
-      <button className={styles.loginForm} name="github" onClick={onSocialClick}>
-        Continue with Github
-      </button>
+        <button
+          className={styles.loginForm}
+          name="google"
+          onClick={onSocialClick}
+        >
+          Continue with Google
+          <img
+            className={styles.socialLogo}
+            src={`${process.env.PUBLIC_URL}/img/google.png`}
+          />
+        </button>
+        <button
+          className={styles.loginForm}
+          name="github"
+          onClick={onSocialClick}
+        >
+          Continue with Github
+          <img
+            className={styles.socialLogo}
+            src={`${process.env.PUBLIC_URL}/img/github.png`}
+          />
+        </button>
       </div>
     </div>
   );

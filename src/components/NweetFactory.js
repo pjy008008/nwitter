@@ -1,7 +1,7 @@
 import React from "react";
 import {
   ref,
-  //   uploadString,
+  uploadString,
   getStorage,
   getDownloadURL,
 } from "firebase/storage";
@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "fbase";
+import styles from "./NweetFactory.module.css";
 
 const NweetFactory = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
@@ -20,7 +21,7 @@ const NweetFactory = ({ userObj }) => {
     if (attachment !== "") {
       const storage = getStorage();
       const storageRef = ref(storage, `${userObj.uid}/${uuidv4()}`);
-      //   const response = await uploadString(storageRef, attachment, "data_url");
+      const response = await uploadString(storageRef, attachment, "data_url");
       attachmentUrl = await getDownloadURL(storageRef);
     }
     try {
@@ -64,8 +65,9 @@ const NweetFactory = ({ userObj }) => {
         maxLength={120}
         type="text"
       />
-      <input onChange={onFileChange} type="file" accept="image/*" />
       <input value="submit" type="submit" />
+      <br />
+      <input onChange={onFileChange} type="file" accept="image/*" />
       {attachment && (
         <div>
           <img alt="preview" src={attachment} width="50px" height="50px" />

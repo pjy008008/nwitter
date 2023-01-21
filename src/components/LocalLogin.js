@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useState } from "react";
+import styles from "./LocalLogin.module.css";
 
 const LocalLogin = () => {
   const auth = getAuth();
@@ -12,7 +13,7 @@ const LocalLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  
+
   const onChange = (event) => {
     const { name, value } = event.target;
     // const {target: {name,value}}=event;
@@ -65,6 +66,7 @@ const LocalLogin = () => {
     <>
       <form onSubmit={onSubmit}>
         <input
+          className={styles.user}
           name="email"
           type="email"
           onChange={onChange}
@@ -72,7 +74,9 @@ const LocalLogin = () => {
           required
           value={email}
         />
+        <br />
         <input
+          className={styles.user}
           name="password"
           type="password"
           placeholder="Password"
@@ -80,12 +84,14 @@ const LocalLogin = () => {
           value={password}
           onChange={onChange}
         />
+        <br />
         <input
+        className={styles.submitBtn}
           type="submit"
           value={newAccount ? "Create Account" : "Sign in"}
         />
       </form>
-      <span onClick={toggleAccount}>
+      <span className={styles.toggle} onClick={toggleAccount}>
         {newAccount ? "Sign in" : "Create Account"}
       </span>
     </>

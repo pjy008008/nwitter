@@ -1,0 +1,24 @@
+input.user {
+  border: none;
+  border-bottom: 1.5px solid white;
+  background-color: black;
+  width: 230px;
+  height: 30px;
+  text-align: left;
+}
+input.user::placeholder {
+  color: rgb(29, 161, 242);
+  font-size: 15px;
+}
+input.submitBtn {
+  margin-top: 20px;
+  width: 240px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1.5px solid rgb(29, 161, 242);
+  color: rgb(29, 161, 242);
+  margin-bottom: 10px;
+}
+span.toggle {
+  border-bottom: 1.5px solid white;
+}

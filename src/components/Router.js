@@ -1,11 +1,5 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../routes/Home";
 import Auth from "../routes/Auth";
 import Profile from "routes/Profile";
@@ -14,6 +8,7 @@ import Navigation from "./Navigation";
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   const router = createBrowserRouter([
     {
+      // ${process.env.PUBLIC_URL}
       path: "/",
       element: (
         <div>

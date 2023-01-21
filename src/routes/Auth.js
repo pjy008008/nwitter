@@ -1,13 +1,11 @@
-import React, { useState } from "react";
 import {
-  createUserWithEmailAndPassword,
   getAuth,
-  signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   GithubAuthProvider,
 } from "firebase/auth";
 import LocalLogin from "components/LocalLogin";
+import styles from "./Auth.module.css";
 
 const Auth = () => {
   const auth = getAuth();
@@ -48,14 +46,18 @@ const Auth = () => {
   };
   return (
     <div>
+      <h1>Twitter</h1>
       <LocalLogin />
       <br />
-      <button name="google" onClick={onSocialClick}>
+      <div className={styles.socialLogin}>
+      <button className={styles.loginForm} name="google" onClick={onSocialClick}>
         Continue with Google
       </button>
-      <button name="github" onClick={onSocialClick}>
+      <br />
+      <button className={styles.loginForm} name="github" onClick={onSocialClick}>
         Continue with Github
       </button>
+      </div>
     </div>
   );
 };

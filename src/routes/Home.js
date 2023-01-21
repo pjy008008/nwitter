@@ -3,6 +3,7 @@ import { collection, onSnapshot, query } from "firebase/firestore";
 import { db } from "fbase";
 import Nweet from "components/Nweet";
 import NweetFactory from "components/NweetFactory";
+import styles from "./Home.module.css";
 
 const Home = ({ userObj }) => {
   // console.log(userObj);

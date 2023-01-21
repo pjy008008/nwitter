@@ -1,0 +1,24 @@
+button.loginForm {
+  background-color: black;
+  width: 240px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 5px;
+  border: 1.5px solid rgb(29, 161, 242);
+  color: rgb(29, 161, 242);
+}
+body {
+  margin-top: 33vh;
+}
+div.socialLogin{
+    margin-top: 20px;
+}
+h1{
+  font-size: 45px;
+  font-weight: bold;
+  color: rgb(29, 161, 242);
+  margin-bottom: 40px;
+}
+footer{
+  margin-top: 20px;
+}

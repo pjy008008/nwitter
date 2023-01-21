@@ -52,8 +52,8 @@ const Auth = () => {
       <div className={styles.socialLogin}>
       <button className={styles.loginForm} name="google" onClick={onSocialClick}>
         Continue with Google
+        <img src="./img/google.webp" />
       </button>
-      <br />
       <button className={styles.loginForm} name="github" onClick={onSocialClick}>
         Continue with Github
       </button>

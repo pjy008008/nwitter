@@ -1,8 +1,9 @@
 input.user {
   border: none;
+  font-size: 15px;
   border-bottom: 1.5px solid white;
   background-color: black;
-  width: 360px;
+  width: 345px;
   height: 40px;
   border-radius: 20px;
   border: 1.5px solid white;
@@ -10,11 +11,11 @@ input.user {
   margin: 5px;
   text-align: left;
   color: black;
+  padding-left: 15px;
 }
 input.user::placeholder {
   color: black;
   font-size: 15px;
-  padding-left: 15px;
 }
 input.submitBtn {
   margin-top: 5px;

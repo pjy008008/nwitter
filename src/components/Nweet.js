@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "fbase";
 import { deleteObject, getStorage, ref } from "firebase/storage";
+import styles from "./Nweet.module.css";
 
 const Nweet = ({ nweetObj, isOwner }) => {
   const [edit, setEdit] = useState(false);
@@ -54,8 +55,8 @@ const Nweet = ({ nweetObj, isOwner }) => {
           <button onClick={toggleEdit}>Cancel</button>
         </>
       ) : (
-        <>
-          <h4>{nweetObj.text}</h4>
+        <div className={styles.nweets}>
+          <h4 className={styles.nweetText}>{nweetObj.text}</h4>
           {nweetObj.attachmentUrl && (
             <img
               alt="post"
@@ -66,11 +67,25 @@ const Nweet = ({ nweetObj, isOwner }) => {
           )}
           {isOwner && (
             <>
-              <button onClick={toggleEdit}>Edit</button>
-              <button onClick={onDeleteClick}>Delete</button>
+              <button id="edit" className={styles.btn} onClick={toggleEdit}>
+                <img
+                  className={styles.imgBtn}
+                  src={`${process.env.PUBLIC_URL}/img/edit.png`}
+                />
+              </button>
+              <button
+                id="delete"
+                className={styles.btn}
+                onClick={onDeleteClick}
+              >
+                <img
+                  className={styles.imgBtn}
+                  src={`${process.env.PUBLIC_URL}/img/delete.png`}
+                />
+              </button>
             </>
           )}
-        </>
+        </div>
       )}
     </div>
   );

@@ -58,7 +58,7 @@ const NweetFactory = ({ userObj }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <div>
+      <div className={styles.type}>
         <input
           className={styles.nweetText}
           value={nweet}
@@ -67,6 +67,8 @@ const NweetFactory = ({ userObj }) => {
           maxLength={120}
           type="text"
         />
+      </div>
+      <div>
         <input className={styles.submitBtn} value="➜" type="submit" />
       </div>
       <br />
@@ -82,9 +84,17 @@ const NweetFactory = ({ userObj }) => {
       </div>
       {attachment && (
         <div>
-          <img className={styles.preview} alt="preview" src={attachment} width="100px" height="100px" />
-          <br/>
-          <button className={styles.clearBtn} onClick={onClearPhotoClick}>Remove ✕</button>
+          <img
+            className={styles.preview}
+            alt="preview"
+            src={attachment}
+            width="100px"
+            height="100px"
+          />
+          <br />
+          <button className={styles.clearBtn} onClick={onClearPhotoClick}>
+            Remove ✕
+          </button>
         </div>
       )}
     </form>

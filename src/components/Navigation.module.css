@@ -1,3 +1,13 @@
-.nav {
-  font-size: 30px;
+.nav1 {
+  width: 50px;
+  height: 42px;
+  margin-right: 10px;
+}
+.nav2 {
+  margin-left: 30px;
+  width: 50px;
+  height: 44px;
+}
+li{
+  display: inline-block;
 }

@@ -7,12 +7,20 @@ const Navigation = ({ userObj }) => {
     <nav>
       <ul>
         <li>
-          <Link className={styles.nav} to={"/"}>
-            Home
+          <Link to={"/"}>
+            <img
+              className={styles.nav1}
+              src={`${process.env.PUBLIC_URL}/img/logo.png`}
+            />
           </Link>
         </li>
         <li>
-          <Link className={styles.nav} to={"/profile"}>{userObj.displayName}'s profile</Link>
+          <Link to={"/profile"}>
+            <img
+              className={styles.nav2}
+              src={`${process.env.PUBLIC_URL}/img/user.png`}
+            />
+          </Link>
         </li>
       </ul>
     </nav>

@@ -58,20 +58,33 @@ const NweetFactory = ({ userObj }) => {
   };
   return (
     <form onSubmit={onSubmit}>
-      <input
-        value={nweet}
-        onChange={onChange}
-        placeholder="What's on your mind?"
-        maxLength={120}
-        type="text"
-      />
-      <input value="submit" type="submit" />
+      <div>
+        <input
+          className={styles.nweetText}
+          value={nweet}
+          onChange={onChange}
+          placeholder="What's on your mind?"
+          maxLength={120}
+          type="text"
+        />
+        <input className={styles.submitBtn} value="➜" type="submit" />
+      </div>
       <br />
-      <input onChange={onFileChange} type="file" accept="image/*" />
+      <div className="filebox">
+        <input
+          className={styles.addPhoto}
+          onChange={onFileChange}
+          type="file"
+          accept="image/*"
+          id="ex_file"
+        />
+        <label for="ex_file">add photos +</label>
+      </div>
       {attachment && (
         <div>
-          <img alt="preview" src={attachment} width="50px" height="50px" />
-          <button onClick={onClearPhotoClick}>Clear</button>
+          <img className={styles.preview} alt="preview" src={attachment} width="100px" height="100px" />
+          <br/>
+          <button className={styles.clearBtn} onClick={onClearPhotoClick}>Remove ✕</button>
         </div>
       )}
     </form>

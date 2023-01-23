@@ -1,3 +1,49 @@
+ul{
+  padding: 0px;
+  margin-bottom: 50px;
+}
 input {
   color: white;
+}
+input.nweetText {
+  border: 1.5px solid rgb(29, 161, 242);
+  background-color: black;
+  width: 360px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 5px;
+  text-align: left;
+  color: white;
+}
+input.nweetText::placeholder {
+  color: white;
+  font-size: 15px;
+  padding-left: 15px;
+}
+input.submitBtn{
+  position: relative;
+  top: 3px;
+  right: 47px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  width: 42px;
+  height: 42px;
+  border-radius: 20px;
+  border: 1.5px solid rgb(29, 161, 242);
+  background-color: rgb(29, 161, 242);
+}
+.addPhoto{
+  display: none;
+}
+.clearBtn{
+  background-color: black;
+  color: rgb(29, 161, 242);
+}
+.preview{
+  margin-top: 20px;
+}
+label{
+  font-size: 15px;
+  color: rgb(29, 161, 242);
 }

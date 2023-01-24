@@ -20,6 +20,7 @@ const Navigation = ({ userObj }) => {
               className={styles.nav2}
               src={`${process.env.PUBLIC_URL}/img/user.png`}
             />
+            <p className={styles.userName}>{userObj.displayName}의 프로필</p>
           </Link>
         </li>
       </ul>

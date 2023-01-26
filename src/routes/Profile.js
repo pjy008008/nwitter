@@ -12,7 +12,7 @@ const Profile = ({ refreshUser, userObj }) => {
   const navigate = useNavigate();
   const onLogOutClick = () => {
     signOut(auth);
-    navigate("/");
+    navigate(`${process.env.PUBLIC_URL}/`);
   };
   const getMyNweets = async () => {
     const q = query(

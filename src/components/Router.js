@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 import Home from "../routes/Home";
 import Auth from "../routes/Auth";
 import Profile from "routes/Profile";
@@ -9,7 +10,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   const router = createBrowserRouter([
     {
       // ${process.env.PUBLIC_URL}
-      path: "/",
+      path: `${process.env.PUBLIC_URL}/`,
       element: (
         <div>
           {isLoggedIn && <Navigation userObj={userObj} />}

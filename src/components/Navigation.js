@@ -7,9 +7,10 @@ const Navigation = ({ userObj }) => {
     <nav>
       <ul>
         <li>
-          <Link to={"/"}>
+          <Link to={`${process.env.PUBLIC_URL}/`}>
             <img
               className={styles.nav1}
+              alt="twitter-logo"
               src={`${process.env.PUBLIC_URL}/img/logo.png`}
             />
           </Link>
@@ -18,6 +19,7 @@ const Navigation = ({ userObj }) => {
           <Link to={"/profile"}>
             <img
               className={styles.nav2}
+              alt="profile-logo"
               src={`${process.env.PUBLIC_URL}/img/user.png`}
             />
             <p className={styles.userName}>{userObj.displayName}의 프로필</p>

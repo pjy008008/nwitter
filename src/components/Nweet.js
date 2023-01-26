@@ -73,8 +73,8 @@ const Nweet = ({ nweetObj, isOwner }) => {
                 className={styles.nweetImg}
                 alt="post"
                 src={nweetObj.attachmentUrl}
-                width="100px"
-                height="100px"
+                width="300px"
+                height="300px"
               />
               <br />
             </>

@@ -6,9 +6,11 @@ import {
 } from "firebase/auth";
 import LocalLogin from "components/LocalLogin";
 import styles from "./Auth.module.css";
+import { useState } from "react";
 
 const Auth = () => {
   const auth = getAuth();
+  // const [errorMessage, seterrorMessage] = useState("");
   //Sign in with Social Account
   const onSocialClick = (event) => {
     const name = event.target.name;

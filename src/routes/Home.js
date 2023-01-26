@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, onSnapshot, query } from "firebase/firestore";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "fbase";
 import Nweet from "components/Nweet";
 import NweetFactory from "components/NweetFactory";
@@ -11,7 +11,7 @@ const Home = ({ userObj }) => {
 
   useEffect(() => {
     // onSnapshot run when the file changed
-    const q = query(collection(db, "nweets"));
+    const q = query(collection(db, "nweets"), orderBy("createdAt", "desc"));
     onSnapshot(q, (snapshot) => {
       const nweetAry = snapshot.docs.map((doc) => ({
         id: doc.id,

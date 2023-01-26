@@ -2,13 +2,11 @@
   width: 50px;
   height: 42px;
   margin-right: 10px;
-  margin: none;
 }
 .nav2 {
   margin-left: 30px;
   width: 50px;
   height: 44px;
-  margin: none;
 }
 li {
   display: inline-block;

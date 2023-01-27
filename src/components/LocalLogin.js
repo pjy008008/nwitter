@@ -86,7 +86,7 @@ const LocalLogin = () => {
         />
         <br />
         <input
-        className={styles.submitBtn}
+          className={styles.submitBtn}
           type="submit"
           value={newAccount ? "Create Account" : "Sign in"}
         />
@@ -94,6 +94,7 @@ const LocalLogin = () => {
       <span className={styles.toggle} onClick={toggleAccount}>
         {newAccount ? "Sign in" : "Create Account"}
       </span>
+      {error && <p className={styles.error}>{error}</p>}
     </>
   );
 };

@@ -10,6 +10,7 @@ import { useState } from "react";
 
 const Auth = () => {
   const auth = getAuth();
+  const [error, setError] = useState("");
   // const [errorMessage, seterrorMessage] = useState("");
   //Sign in with Social Account
   const onSocialClick = (event) => {
@@ -24,6 +25,7 @@ const Auth = () => {
           const user = result.user;
         })
         .catch((error) => {
+          setError(error.message);
           const errorCode = error.code;
           const errorMessage = error.message;
           const email = error.customData.email;
@@ -39,6 +41,7 @@ const Auth = () => {
           const user = result.user;
         })
         .catch((error) => {
+          setError(error.message);
           const errorCode = error.code;
           const errorMessage = error.message;
           const email = error.customData.email;
@@ -53,6 +56,7 @@ const Auth = () => {
         src={`${process.env.PUBLIC_URL}/img/logo.png`}
       />
       <LocalLogin />
+      {error && <p className={styles.error}>{error}</p>}
       <br />
       <div className={styles.socialLogin}>
         <button

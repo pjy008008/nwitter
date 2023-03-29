@@ -1,0 +1,40 @@
+input.user {
+  border: none;
+  font-size: 15px;
+  border-bottom: 1.5px solid white;
+  background-color: black;
+  width: 345px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1.5px solid white;
+  background-color: white;
+  margin: 5px;
+  text-align: left;
+  color: black;
+  padding-left: 15px;
+}
+input.user::placeholder {
+  color: black;
+  font-size: 15px;
+}
+input.submitBtn {
+  margin-top: 5px;
+  width: 360px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1.5px solid rgb(29, 161, 242);
+  background-color: rgb(29, 161, 242);
+  color: white;
+  margin-bottom: 10px;
+}
+span.toggle {
+  color: rgb(29, 161, 242);
+  border-bottom: 1.5px solid rgb(29, 161, 242);
+}
+.error {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 10px;
+  margin-bottom: 0px;
+}

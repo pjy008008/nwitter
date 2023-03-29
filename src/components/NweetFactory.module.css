@@ -1,0 +1,56 @@
+ul {
+  padding: 0px;
+  margin-bottom: 50px;
+}
+input {
+  color: white;
+}
+input.nweetText {
+  position: absolute;
+  border: 1.5px solid rgb(29, 161, 242);
+  background-color: black;
+  width: 360px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 5px;
+  text-align: left;
+  color: white;
+  padding-left: 20px;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+}
+input.nweetText::placeholder {
+  color: white;
+  font-size: 15px;
+}
+input.submitBtn {
+  position: relative;
+  bottom: 21px;
+  margin-left: 350px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  width: 44px;
+  height: 44px;
+  border-radius: 20px;
+  border: 1.5px solid rgb(29, 161, 242);
+  background-color: rgb(29, 161, 242);
+}
+.addPhoto {
+  display: none;
+}
+.clearBtn {
+  background-color: black;
+  color: rgb(29, 161, 242);
+}
+.preview {
+  margin-top: 20px;
+}
+.type {
+  width: 390px;
+  display: inline-block;
+}
+label {
+  font-size: 15px;
+  color: rgb(29, 161, 242);
+}

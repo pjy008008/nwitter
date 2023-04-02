@@ -7,4 +7,3 @@
 #### 2023.03.29
 - Publish error (404)
 - Github push error(fixed)
-- git

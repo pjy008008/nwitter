@@ -2,4 +2,4 @@
 
 ## React JS, HTML5, CSS, Firebase v9
 
-[Site Link](https://pjy008008.github.io/nwitter/)
+[Twitter Clone](https://pjy008008.github.io/nwitter/)
